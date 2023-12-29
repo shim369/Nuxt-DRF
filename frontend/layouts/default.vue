@@ -5,12 +5,14 @@
         <div class="flex items-center space-x-4">
             <NuxtLink to="/" class="text-white">Home</NuxtLink>
             <NuxtLink to="/projects" class="text-white">Projects</NuxtLink>
+            <NuxtLink to="/login" class="text-white bg-[#E01A00] py-2 px-4">Log in</NuxtLink>
+            <NuxtLink to="/signup" class="text-white bg-[#E01A00] py-2 px-4">Sign up</NuxtLink>
         </div>
     </header>
     <div class="min-h-screen text-white">
         <slot />
     </div>
     <footer class="flex justify-center p-5 text-white">
-        Copright (c) 2023 - Portfolio
+        &copy; 2023 Portfolio
     </footer>
 </template>
