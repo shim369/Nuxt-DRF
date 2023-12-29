@@ -2,7 +2,7 @@
     <div class="py-40 px-6 bg-[#1a1a1a] text-center">
         <h1 class="text-5xl text-white">My portfolio site</h1>
     </div>
-    <div class="grid md:grid-cols-4 gap-3 py-10 px-6 text-[#fff]">
+    <div class="grid md:grid-cols-4 gap-3 py-10 px-6 text-white">
         <main class="md:col-span-3">
             <ul class="mb-8">
                 <li class="flex flex-col mb-8 w-full p-5 bg-[#3a3a3a] md:flex-row" key="">
@@ -38,7 +38,7 @@
                             </tbody>
                         </table>
                         <nuxt-link to="/projects/1"
-                            class="bg-[#E01A00] py-2 px-4 text-[#fff] float-right rounded-full border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]">Detail</nuxt-link>
+                            class="bg-[#E01A00] py-2 px-4 text-white float-right rounded-full border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]">Detail</nuxt-link>
                     </div>
                 </li>
             </ul>

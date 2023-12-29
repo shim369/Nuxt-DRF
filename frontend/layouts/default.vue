@@ -10,7 +10,7 @@
     <div class="min-h-screen text-white">
         <slot />
     </div>
-    <footer class="flex justify-center p-5 text-[#fff]">
+    <footer class="flex justify-center p-5 text-white">
         Copright (c) 2023 - Portfolio
     </footer>
 </template>
