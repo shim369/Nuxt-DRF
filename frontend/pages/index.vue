@@ -1,6 +1,6 @@
 <template>
     <div class="py-40 px-6 bg-[#1a1a1a] text-center">
-        <h1 class="text-5xl text-white">My portfolio site</h1>
+        <h1 class="text-3xl text-[#E01A00] font-bold md:text-5xl">My portfolio site</h1>
     </div>
     <div class="grid md:grid-cols-4 gap-6 py-10 px-6 text-white">
         <main class="md:col-span-3">
