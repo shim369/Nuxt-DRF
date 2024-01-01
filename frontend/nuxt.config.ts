@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      style: [{ children: "body { background: #0f0f0f; } .lilita-one { font-family: 'Lilita One', sans-serif; }" }],
+      style: [{ children: "body { background: #0f0f0f; font-family: 'Lato', sans-serif; } .lilita-one { font-family: 'Lilita One', sans-serif; }" }],
       link: [
         {
           rel: "preconnect",
@@ -10,7 +10,7 @@ export default defineNuxtConfig({
         },
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Lilita+One&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Lilita+One&display=swap",
           crossorigin: "",
         },
       ],
