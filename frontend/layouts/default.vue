@@ -7,7 +7,7 @@ const userStore = useUserStore()
 <template>
     <div class="bg-black-orign">
         <header class="w-full bg-[#0f0f0f] p-6 flex items-center justify-between">
-            <NuxtLink to="/" class="text-xl text-[#E01A00] md:text-3xl">Portfolio</NuxtLink>
+            <NuxtLink to="/" class="lilita-one text-xl text-[#E01A00] md:text-3xl">Portfolio</NuxtLink>
 
             <div class="flex items-center space-x-4">
                 <NuxtLink to="/" class="text-white">Home</NuxtLink>
