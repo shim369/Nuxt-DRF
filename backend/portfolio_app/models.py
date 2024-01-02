@@ -8,10 +8,14 @@ class Skill(models.Model):
     class Meta:
         ordering = ('title',)
 
+    def __str__(self):
+        return self.title
+
 class Project(models.Model):
     skill = models.ForeignKey(Skill, related_name="projects", on_delete=models.CASCADE)
     title = models.CharField('タイトル', max_length=255)
     description = models.CharField('説明', max_length=500)
+    image_url = models.URLField('サムネイルリンク', max_length=200)
     demo_link = models.URLField('リンク', max_length=200)
     github_repo = models.URLField('GitHub', max_length=200)
     content = models.TextField('テキスト')
@@ -20,6 +24,9 @@ class Project(models.Model):
 
     class Meta:
         ordering = ('-created_at',)
+
+    def __str__(self):
+        return self.title
 
     def created_at_formatted(self):
         return defaultfilters.date(self.created_at, 'M d, Y')
