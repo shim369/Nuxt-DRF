@@ -20,7 +20,7 @@ const userStore = useUserStore()
                     <NuxtLink to="/post"
                         class="text-white bg-[#E01A00] py-2 px-4 border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]">
                         Post Project</NuxtLink>
-                    <NuxtLink to="/logout"
+                    <NuxtLink to="/"
                         class="text-white bg-[#E01A00] py-2 px-4 border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]">
                         Log out</NuxtLink>
                 </template>
