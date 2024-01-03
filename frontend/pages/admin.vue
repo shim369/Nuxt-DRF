@@ -28,6 +28,12 @@ async function getProjects() {
         console.log('error', error)
     })
 }
+
+function deleteProject(id) {
+    // console.log('id', id)
+    
+    projects.value = projects.value.filter(project => project.id !== id)
+}
 </script>
 
 <template>
@@ -40,6 +46,7 @@ async function getProjects() {
                 :key="project.id"
                 :project="project"
                 :admin="true"
+                @deleteProject="deleteProject"
             />
         </ul>
     </div>

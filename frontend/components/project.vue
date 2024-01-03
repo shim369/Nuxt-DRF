@@ -1,4 +1,10 @@
 <script setup>
+import { useUserStore } from '@/store/user';
+
+const userStore = useUserStore()
+
+const emit = defineEmits(['deleteProject'])
+
 const props = defineProps({
     admin: {
         type: [Boolean]
@@ -7,11 +13,30 @@ const props = defineProps({
         type: [Object]
     }
 })
+
+async function deleteProject(id) {
+    await $fetch('http://127.0.0.1:8000/api/v1/projects/' + id + '/delete/', {
+        method: 'DELETE',
+        headers: {
+            'Authorization': 'token ' + userStore.user.token,
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(response => {
+        // console.log('response', response)
+
+        emit('deleteProject', id)
+    })
+    .catch(error => {
+        console.log('error', error)
+    })
+}
 </script>
 
 <template>
     <li class="flex flex-col w-full p-5 bg-[#3a3a3a] md:flex-row" key="">
-        <img :src="project.image_url" alt="project.title" class="w-full md:w-1/4 h-auto max-h-[300px] object-cover" width="300" height="200" />
+        <img :src="project.image_url" alt="project.title" class="w-full md:w-1/4 h-auto max-h-[300px] object-cover"
+            width="300" height="200" />
         <div class="w-full md:w-3/4 ml-0 mt-5 md:ml-5 md:mt-0">
             <h2 class="text-2xl border-b-2 border-[#000] pb-2">{{ project.title }}</h2>
             <p class="mt-4 mb-6">{{ project.description }}</p>
@@ -46,9 +71,9 @@ const props = defineProps({
                 <nuxt-link to="/projects/1"
                     class="bg-[#E01A00] py-2 px-4 text-white rounded-full border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]"
                     v-if="admin">Edit</nuxt-link>
-                <nuxt-link to="/projects/1"
+                <a @click="deleteProject(project.id)"
                     class="bg-[#E01A00] py-2 px-4 text-white rounded-full border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]"
-                    v-if="admin">Delete</nuxt-link>
+                    v-if="admin">Delete</a>
             </div>
         </div>
     </li>
