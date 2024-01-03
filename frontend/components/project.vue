@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({
-    my: {
+    admin: {
         type: [Boolean]
     },
     project: {
@@ -45,10 +45,10 @@ const props = defineProps({
                     class="bg-[#E01A00] py-2 px-4 text-white rounded-full border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]">Detail</nuxt-link>
                 <nuxt-link to="/projects/1"
                     class="bg-[#E01A00] py-2 px-4 text-white rounded-full border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]"
-                    v-if="my">Edit</nuxt-link>
+                    v-if="admin">Edit</nuxt-link>
                 <nuxt-link to="/projects/1"
                     class="bg-[#E01A00] py-2 px-4 text-white rounded-full border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]"
-                    v-if="my">Delete</nuxt-link>
+                    v-if="admin">Delete</nuxt-link>
             </div>
         </div>
     </li>

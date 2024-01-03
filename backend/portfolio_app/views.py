@@ -19,6 +19,16 @@ class NewestProjectsView(APIView):
 
         return Response(serializer.data)
     
+class AdminView(APIView):
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, format=None):
+        projects = Project.objects.filter(created_by=request.user)
+        serializer = ProjectSerializer(projects, many=True)
+
+        return Response(serializer.data)
+    
 class AllProjectsView(APIView):
     def get(self, request, format=None):
         projects = Project.objects.all()
@@ -30,7 +40,6 @@ class AllProjectsView(APIView):
 
         if skills:
             projects = projects.filter(skill_id__in=skills.split(','))
-
 
         serializer = ProjectSerializer(projects, many=True)
 
