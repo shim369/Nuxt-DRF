@@ -2,6 +2,11 @@
 const route = useRoute()
 
 const { data: project } = await useFetch('http://127.0.0.1:8000/api/v1/projects/' + route.params.id + '/')
+
+useSeoMeta({
+    title: project.value.title,
+    description: project.value.description
+})
 </script>
 <template>
     <div class="py-10 px-6 grid md:grid-cols-4 gap-3">

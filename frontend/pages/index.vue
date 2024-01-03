@@ -1,7 +1,12 @@
 <script setup>
 const { data: projects } = await useFetch('http://127.0.0.1:8000/api/v1/projects/newest/')
 
-console.log(projects.value)
+// console.log(projects.value)
+
+useSeoMeta({
+    title: 'My portfolio site',
+    description: 'My portfolio site'
+})
 </script>
 <template>
     <div class="py-40 px-6 bg-[#1a1a1a] text-center">
