@@ -18,11 +18,11 @@ export const useUserStore = defineStore({
                 this.user.email = localStorage.getItem('user.email')
                 this.user.isAuthenticated = true
 
-                console.log('Initialized user:', this.user)
+                // console.log('Initialized user:', this.user)
             }
         },
         setToken(token, email) {
-            console.log('setToken', token, email)
+            // console.log('setToken', token, email)
 
             this.user.token = token
             this.user.email = email
