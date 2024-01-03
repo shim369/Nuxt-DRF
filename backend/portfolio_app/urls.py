@@ -10,4 +10,5 @@ urlpatterns = [
     path('newest/', views.NewestProjectsView.as_view()),
     path('<int:pk>/', views.ProjectsDetailView.as_view()),
     path('<int:pk>/delete/', views.CreateProjectView.as_view()),
+    path('<int:pk>/edit/', views.CreateProjectView.as_view()),
 ]

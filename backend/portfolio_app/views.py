@@ -46,6 +46,15 @@ class CreateProjectView(APIView):
         else:
             return Response({'status': 'errors', 'errors': form.errors})
     
+    def put(self, request, pk):
+        project = Project.objects.get(pk=pk, created_by=request.user)
+        form = ProjectForm(request.data, instance=project)
+        if form.is_valid():
+            form.save()
+            return Response({'status': 'updated'})
+        else:
+            return Response({'status': 'errors', 'errors': form.errors}, status=400)
+
     def delete(self, request, pk):
         project = Project.objects.get(pk=pk, created_by=request.user)
         project.delete()
