@@ -2,6 +2,7 @@ from rest_framework import status, authentication, permissions
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
+from .forms import ProjectForm
 from .models import Project, Skill
 from .serializers import ProjectSerializer, ProjectDetailSerializer, SkillSerializer
 
@@ -28,7 +29,23 @@ class AdminView(APIView):
         serializer = ProjectSerializer(projects, many=True)
 
         return Response(serializer.data)
-    
+
+class CreateProjectView(APIView):
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request):
+        form = ProjectForm(request.data)
+
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.created_by = request.user
+            project.save()
+
+            return Response({'status': 'created'})
+        else:
+            return Response({'status': 'errors', 'errors': form.errors})
+
 class AllProjectsView(APIView):
     def get(self, request, format=None):
         projects = Project.objects.all()

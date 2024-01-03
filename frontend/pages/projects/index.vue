@@ -50,7 +50,7 @@ let { data: projects } = await useFetch('http://127.0.0.1:8000/api/v1/projects/'
                 <p
                     v-for="skill in projectsSkills"
                     v-bind:key="skill.id"
-                    v-on:click="$event => toggleSkill(skill.id)"
+                    v-on:click="toggleSkill(skill.id)"
                     class="py-4 px-6 text-white"
                     v-bind:class="{'bg-gray-500': selectedSkillsRef.includes(skill.id)}"
                 >
