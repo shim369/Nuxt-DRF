@@ -1,15 +1,25 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, watchEffect } from 'vue'
 import { useUserStore } from '@/store/user'
+import { useRouter } from 'vue-router'
 
 const userStore = useUserStore()
 const router = useRouter()
 
 onMounted(() => {
+    checkAuthentication()
+})
+
+watchEffect(() => {
+    checkAuthentication()
+})
+
+function checkAuthentication() {
     if (!userStore.user.isAuthenticated) {
         router.push('/login')
     }
-})
+}
+
 let { data: projectsSkills } = await useFetch('http://127.0.0.1:8000/api/v1/projects/skills/')
 let skill = ref('')
 let title = ref('')
@@ -18,6 +28,7 @@ let image_url = ref('')
 let demo_link = ref('')
 let github_repo = ref('')
 let errors = ref([])
+let content = ref([])
 
 async function submitForm() {
     console.log('submitForm')
@@ -30,6 +41,7 @@ async function submitForm() {
     if (skill.value == '') { errors.value.push('You must select a skill') }
     if (demo_link.value == '') { errors.value.push('The link field is missing') }
     if (github_repo.value == '') { errors.value.push('The github field is missing') }
+    if (content.value == '') { errors.value.push('The content field is missing') }
 
     if (errors.value.length == 0) {
         await $fetch('http://127.0.0.1:8000/api/v1/projects/create/', {
@@ -67,30 +79,30 @@ async function submitForm() {
     }
 }
 </script>
+
 <template>
+    <underTitle under_h1="Post Project" />
     <div class="py-10 px-6">
-        <h1 class="mb-6 text-2xl">Post Project</h1>
-
-        <form v-on:submit.prevent="submitForm" class="space-y-4">
+        <form v-on:submit.prevent="submitForm" class="space-y-4 m-auto w-full md:w-3/5">
 
             <div>
-                <label>Image URL</label>
-                <input v-model="image_url" type="text" class="w-full mt-2 p-4 text-black">
+                <label for="image_url">Image URL</label>
+                <input v-model="image_url" id="image_url" type="text" class="w-full mt-2 p-4 text-black">
             </div>
 
             <div>
-                <label>Title</label>
-                <input v-model="title" type="text" class="w-full mt-2 p-4 text-black">
+                <label for="title">Title</label>
+                <input v-model="title" id="title" type="text" class="w-full mt-2 p-4 text-black">
             </div>
 
             <div>
-                <label>Description</label>
-                <textarea v-model="description" type="text" class="w-full mt-2 p-4 text-black"></textarea>
+                <label for="description">Description</label>
+                <textarea v-model="description" id="description" type="text" class="w-full mt-2 p-4 text-black"></textarea>
             </div>
 
             <div>
-                <label>Skill</label>
-                <select v-model="skill" class="w-full mt-2 p-4 text-black">
+                <label for="skill">Skill</label>
+                <select v-model="skill" id="skill" class="w-full mt-2 p-4 text-black">
                     <option value="">Select Skill</option>
                     <option v-for="skill in projectsSkills" v-bind:key="skill.id" v-bind:value="skill.id">
                         {{ skill.title }}
@@ -99,13 +111,18 @@ async function submitForm() {
             </div>
 
             <div>
-                <label>URL</label>
-                <input v-model="demo_link" type="text" class="w-full mt-2 p-4 text-black">
+                <label for="demo_link">URL</label>
+                <input v-model="demo_link" id="demo_link" type="text" class="w-full mt-2 p-4 text-black">
             </div>
 
             <div>
-                <label>GitHub</label>
-                <input v-model="github_repo" type="text" class="w-full mt-2 p-4 text-black">
+                <label for="github_repo">GitHub</label>
+                <input v-model="github_repo" id="github_repo" type="text" class="w-full mt-2 p-4 text-black">
+            </div>
+
+            <div>
+                <label for="Content">Content</label>
+                <textarea v-model="content" id="Content" type="text" class="w-full mt-2 p-4 text-black"></textarea>
             </div>
 
             <div v-if="errors.length" class="mb-6 py-4 px-6 bg-[#f84934] text-white">
@@ -114,7 +131,7 @@ async function submitForm() {
                 </p>
             </div>
 
-            <button class="py-4 px-6 text-white bg-[#E01A00]">Submit</button>
+            <button class="btn-red-rounded">Submit</button>
         </form>
     </div>
 </template>
