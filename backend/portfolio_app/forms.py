@@ -7,5 +7,5 @@ class ProjectForm(ModelForm):
         model = Project
         fields = (
             'title', 'description', 'image_url', 'demo_link',
-            'github_repo',
+            'github_repo', 'content'
         )
