@@ -19,22 +19,22 @@ function logout() {
 
                 <template v-if="userStore.user.isAuthenticated">
                     <NuxtLink to="/admin"
-                        class="text-white bg-[#E01A00] py-2 px-4 border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]">
+                        class="btn-red-rounded">
                         Admin</NuxtLink>
                     <NuxtLink to="/post"
-                        class="text-white bg-[#E01A00] py-2 px-4 border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]">
+                        class="btn-red-rounded">
                         Post Project</NuxtLink>
                     <a v-on:click="logout"
-                        class="text-white bg-[#E01A00] py-2 px-4 border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]">
+                        class="btn-red-rounded">
                         Log out</a>
                 </template>
 
                 <template v-else>
                     <NuxtLink to="/login"
-                        class="text-white bg-[#E01A00] py-2 px-4 border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]">
+                        class="btn-red-rounded">
                         Log in</NuxtLink>
                     <NuxtLink to="/signup"
-                        class="text-white bg-[#E01A00] py-2 px-4 border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]">
+                        class="btn-red-rounded">
                         Sign up</NuxtLink>
                 </template>
 

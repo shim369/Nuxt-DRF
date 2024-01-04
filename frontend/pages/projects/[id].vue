@@ -16,9 +16,9 @@ useSeoMeta({
             <div class="mt-6 text-xl">{{ project.content }}</div>
             <div class="mt-10">
                 <a :href="project.demo_link" target="_blank" rel="noopener noreferrer"
-                    class="bg-[#2b2a2a] py-1 px-3 inline-block hover:bg-transparent border-2 border-[#2b2a2a] hover:text-[#fff] hover:border-2 hover:border-[#2b2a2a] mr-2">Site</a>
+                    class="btn-gray-rounded mr-2">Site</a>
                 <a :href="project.github_repo" target="_blank" rel="noopener noreferrer"
-                    class="bg-[#2b2a2a] py-1 px-3 inline-block hover:bg-transparent border-2 border-[#2b2a2a] hover:text-[#fff] hover:border-2 hover:border-[#2b2a2a]">GitHub</a>
+                    class="btn-gray-rounded">GitHub</a>
             </div>
         </div>
     </div>

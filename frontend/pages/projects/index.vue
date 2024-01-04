@@ -34,7 +34,7 @@ let { data: projects } = await useFetch('http://127.0.0.1:8000/api/v1/projects/'
             <div class="flex space-x-4">
                 <input v-model="query" type="search" placeholder="Find project" class="w-full px-6 py-4 text-black">
                 <button
-                    class="px-6 py-6 text-white bg-[#E01A00] border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00]"
+                    class="btn-red-search"
                     v-on:click="performSearch">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">

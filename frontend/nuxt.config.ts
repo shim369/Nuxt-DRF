@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      style: [{ children: "body { background: #0f0f0f; font-family: 'Lato', sans-serif; } .lilita-one { font-family: 'Lilita One', sans-serif; }" }],
       link: [
         {
           rel: "preconnect",

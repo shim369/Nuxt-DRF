@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	body { 
+		@apply bg-[#0f0f0f] lato;
+	}
+}
+
+@layer components {
+	.btn-red-search {
+		@apply text-white bg-[#E01A00] px-6 py-6 border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00];
+	}
+	.btn-red-rounded {
+		@apply text-white bg-[#E01A00] py-2 px-4 border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00] rounded-full;
+	}
+	.btn-gray-rounded {
+		@apply bg-[#2b2a2a] py-1 px-3 inline-block hover:bg-transparent border-2 border-[#2b2a2a] hover:text-[#2b2a2a] hover:border-2 hover:border-[#2b2a2a] rounded-full;
+	}
+}
+
+@layer utilities {
+	.lato {
+		font-family: 'Lato', sans-serif;
+	}
+	.lilita-one {
+		font-family: 'Lilita One', sans-serif;
+	}
+}
