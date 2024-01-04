@@ -38,7 +38,7 @@ async function deleteProject(id) {
         <img :src="project.image_url" alt="project.title" class="w-full md:w-1/4 h-auto max-h-[300px] object-cover"
             width="300" height="200" />
         <div class="w-full md:w-3/4 ml-0 mt-5 md:ml-5 md:mt-0">
-            <h2 class="text-2xl border-b-2 border-[#000] pb-2">{{ project.title }}</h2>
+            <h2 class="h2-title">{{ project.title }}</h2>
             <p class="mt-4 mb-6">{{ project.description }}</p>
             <table class="w-full border-separate mb-3">
                 <tbody>

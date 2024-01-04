@@ -18,6 +18,9 @@
 	.btn-gray-rounded {
 		@apply bg-[#2b2a2a] py-1 px-3 inline-block hover:bg-transparent border-2 border-[#2b2a2a] hover:text-[#2b2a2a] hover:border-2 hover:border-[#2b2a2a] rounded-full;
 	}
+	.h2-title {
+		@apply text-2xl mb-4 border-b-2 border-[#000] pb-2;
+	}
 }
 
 @layer utilities {
