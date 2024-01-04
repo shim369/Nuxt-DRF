@@ -41,10 +41,9 @@ async function submitForm() {
 }
 </script>
 <template>
+    <underTitle under_h1="Log in" />
     <div class="py-10 px-6">
         <div class="max-w-sm mx-auto py-10 px-6 bg-[#3a3a3a]">
-            <h1 class="mb-6 text-2xl">Log in</h1>
-
             <form v-on:submit.prevent="submitForm">
                 <input v-model="email" type="email" placeholder="Email" class="w-full mb-4 py-4 px-6 text-black">
                 <input v-model="password" type="password" placeholder="Password" class="w-full mb-4 py-4 px-6 text-black">

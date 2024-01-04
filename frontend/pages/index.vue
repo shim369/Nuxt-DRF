@@ -11,7 +11,7 @@ useSeoMeta({
 </script>
 <template>
     <div class="py-40 px-6 bg-[#1a1a1a] text-center">
-        <h1 class="text-transparent lilita-one text-4xl text-stroke font-bold mb-2 md:text-8xl">WEB DEVELOPMENT</h1>
+        <h1 class="h1-title mb-2 text-4xl md:text-8xl">WEB DEVELOPMENT</h1>
         <p class="lilita-one text-xl text-[#6b6b6b]">My Portfolio site</p>
     </div>
     <div class="grid md:grid-cols-4 gap-6 py-10 px-6 text-white">
@@ -33,7 +33,7 @@ useSeoMeta({
                 </div>
 
                 <h2 class="h2-title">Skills</h2>
-                <div class="mb-8 flex flex-row break-all">
+                <div class="mb-4 flex flex-row break-all">
                     <p v-for="skill in projectsSkills" v-bind:key="skill.id" class="mr-2 text-white">
                         {{ skill.title }}
                     </p>
@@ -42,9 +42,3 @@ useSeoMeta({
         </aside>
     </div>
 </template>
-
-<style>
-.text-stroke {
-    -webkit-text-stroke: 1px #E01A00;
-}
-</style>

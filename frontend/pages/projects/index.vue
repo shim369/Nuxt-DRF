@@ -29,10 +29,11 @@ let { data: projects } = await useFetch('http://127.0.0.1:8000/api/v1/projects/'
 </script>
 
 <template>
+    <underTitle under_h1="Projects" />
     <div class="grid md:grid-cols-4 gap-6 py-10 px-6">
         <aside class="md:col-span-1 px-6 py-6">
             <div class="flex space-x-4">
-                <input v-model="query" type="search" placeholder="Find project" class="w-full px-6 py-4 text-black">
+                <input v-model="query" type="search" name="search" placeholder="Find project" class="w-full px-6 py-4 text-black">
                 <button
                     class="btn-red-search"
                     v-on:click="performSearch">
@@ -47,7 +48,7 @@ let { data: projects } = await useFetch('http://127.0.0.1:8000/api/v1/projects/'
             <h3 class="mt-6 text-xl text-white">Skills</h3>
             <div class="mt-6 space-y-4">
                 <p v-for="skill in projectsSkills" v-bind:key="skill.id" v-on:click="toggleSkill(skill.id)"
-                    class="py-4 px-6 text-white" v-bind:class="{ 'bg-gray-500': selectedSkillsRef.includes(skill.id) }">
+                    class="py-4 px-6 text-white cursor-pointer hover:bg-gray-400 hover:text-black" v-bind:class="{ 'bg-gray-500': selectedSkillsRef.includes(skill.id) }">
                     {{ skill.title }}
                 </p>
             </div>

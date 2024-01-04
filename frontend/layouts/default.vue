@@ -23,7 +23,7 @@ function logout() {
                         Admin</NuxtLink>
                     <NuxtLink to="/post"
                         class="btn-red-rounded">
-                        Post Project</NuxtLink>
+                        Post</NuxtLink>
                     <a v-on:click="logout"
                         class="btn-red-rounded">
                         Log out</a>
