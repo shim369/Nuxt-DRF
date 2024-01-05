@@ -2,6 +2,9 @@
 import { onMounted, watchEffect } from 'vue'
 import { useUserStore } from '@/store/user'
 
+const config = useRuntimeConfig();
+const apiUrl = config.public.API_BASE_URL;
+
 const userStore = useUserStore()
 const router = useRouter()
 let projects = ref()
@@ -23,7 +26,7 @@ function checkAuthentication() {
 }
 
 async function getProjects() {
-    await $fetch('http://127.0.0.1:8000/api/v1/projects/admin', {
+    await $fetch(`${apiUrl}/api/v1/projects/admin`, {
         headers: {
             'Authorization': 'token ' + userStore.user.token,
             'Content-Type': 'application/json'

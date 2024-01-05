@@ -1,7 +1,9 @@
 <script setup>
+const config = useRuntimeConfig();
+const apiUrl = config.public.API_BASE_URL;
 const route = useRoute()
 
-const { data: project } = await useFetch('http://127.0.0.1:8000/api/v1/projects/' + route.params.id + '/')
+const { data: project } = await useFetch(`${apiUrl}/api/v1/projects/` + route.params.id + '/')
 
 useSeoMeta({
     title: project.value.title,

@@ -1,5 +1,7 @@
 <script setup>
 import { useUserStore } from '@/store/user';
+const config = useRuntimeConfig();
+const apiUrl = config.public.API_BASE_URL;
 const router = useRouter()
 const userStore = useUserStore()
 
@@ -12,7 +14,7 @@ async function submitForm() {
 
     errors.value = []
 
-    await $fetch('http://127.0.0.1:8000/api/v1/token/login/', {
+    await $fetch(`${apiUrl}/api/v1/token/login/`, {
         method: 'POST',
         body: {
             username: email.value,

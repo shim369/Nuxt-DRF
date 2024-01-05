@@ -1,5 +1,7 @@
 <script setup>
 import { useUserStore } from '@/store/user';
+const config = useRuntimeConfig();
+const apiUrl = config.public.API_BASE_URL;
 
 const userStore = useUserStore()
 
@@ -15,7 +17,7 @@ const props = defineProps({
 })
 
 async function deleteProject(id) {
-    await $fetch('http://127.0.0.1:8000/api/v1/projects/' + id + '/delete/', {
+    await $fetch(`${apiUrl}/api/v1/projects/` + id + '/delete/', {
         method: 'DELETE',
         headers: {
             'Authorization': 'token ' + userStore.user.token,

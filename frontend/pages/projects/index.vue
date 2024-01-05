@@ -1,4 +1,6 @@
 <script setup>
+const config = useRuntimeConfig();
+const apiUrl = config.public.API_BASE_URL;
 let queryRef = ref('')
 let query = ''
 
@@ -6,7 +8,7 @@ function performSearch() {
     queryRef.value = query
 }
 
-let { data: projectsSkills } = await useFetch('http://127.0.0.1:8000/api/v1/projects/skills/')
+let { data: projectsSkills } = await useFetch(`${apiUrl}/api/v1/projects/skills/`)
 let selectedSkillsRef = ref('')
 let selectedSkills = []
 
@@ -23,7 +25,7 @@ function toggleSkill(id) {
 }
 
 
-let { data: projects } = await useFetch('http://127.0.0.1:8000/api/v1/projects/', {
+let { data: projects } = await useFetch(`${apiUrl}/api/v1/projects/`, {
     query: { query: queryRef, skills: selectedSkillsRef }
 })
 </script>

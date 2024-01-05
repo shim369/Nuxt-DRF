@@ -1,6 +1,9 @@
 <script setup>
-const { data: projects } = await useFetch('http://127.0.0.1:8000/api/v1/projects/newest/')
-let { data: projectsSkills } = await useFetch('http://127.0.0.1:8000/api/v1/projects/skills/')
+const config = useRuntimeConfig();
+const apiUrl = config.public.API_BASE_URL;
+
+const { data: projects } = await useFetch(`${apiUrl}/api/v1/projects/newest/`)
+let { data: projectsSkills } = await useFetch(`${apiUrl}/api/v1/projects/skills/`)
 
 // console.log(projects.value)
 

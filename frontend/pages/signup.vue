@@ -1,4 +1,6 @@
 <script setup>
+const config = useRuntimeConfig();
+const apiUrl = config.public.API_BASE_URL;
 const router = useRouter()
 let email = ref('')
 let password1 = ref('')
@@ -10,7 +12,7 @@ async function submitForm() {
 
     errors.value = []
 
-    await $fetch('http://127.0.0.1:8000/api/v1/users/', {
+    await $fetch(`${apiUrl}/api/v1/users/`, {
         method: 'POST',
         body: {
             username: email.value,

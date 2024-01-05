@@ -2,6 +2,8 @@
 import { onMounted, watchEffect } from 'vue'
 import { useUserStore } from '@/store/user'
 import { useRouter } from 'vue-router'
+const config = useRuntimeConfig();
+const apiUrl = config.public.API_BASE_URL;
 
 const userStore = useUserStore()
 const router = useRouter()
@@ -20,7 +22,7 @@ function checkAuthentication() {
     }
 }
 
-let { data: projectsSkills } = await useFetch('http://127.0.0.1:8000/api/v1/projects/skills/')
+let { data: projectsSkills } = await useFetch(`${apiUrl}/api/v1/projects/skills/`)
 let skill = ref('')
 let title = ref('')
 let description = ref('')
@@ -44,7 +46,7 @@ async function submitForm() {
     if (content.value == '') { errors.value.push('The content field is missing') }
 
     if (errors.value.length == 0) {
-        await $fetch('http://127.0.0.1:8000/api/v1/projects/create/', {
+        await $fetch(`${apiUrl}/api/v1/projects/create/`, {
             method: 'POST',
             headers: {
                 'Authorization': 'token ' + userStore.user.token,

@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted, watchEffect } from 'vue'
 import { useUserStore } from '@/store/user'
+const config = useRuntimeConfig();
+const apiUrl = config.public.API_BASE_URL;
 
 const userStore = useUserStore()
 const router = useRouter()
@@ -20,7 +22,7 @@ function checkAuthentication() {
     }
 }
 
-const { data: project } = await useFetch('http://127.0.0.1:8000/api/v1/projects/' + route.params.id + '/')
+const { data: project } = await useFetch(`${apiUrl}/api/v1/projects/` + route.params.id + '/')
 
 let title = ref(project.value.title)
 let description = ref(project.value.description)
@@ -44,7 +46,7 @@ async function submitForm() {
     if (content.value == '') { errors.value.push('The content field is missing') }
 
     if (errors.value.length == 0) {
-        await $fetch('http://127.0.0.1:8000/api/v1/projects/' + route.params.id + '/edit/', {
+        await $fetch(`${apiUrl}/api/v1/projects/` + route.params.id + '/edit/', {
             method: 'PUT',
             headers: {
                 'Authorization': 'token ' + userStore.user.token,
