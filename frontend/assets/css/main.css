@@ -16,13 +16,13 @@
 		@apply cursor-pointer transition ease-in-out delay-100 text-white bg-[#E01A00] py-2 px-4 border-2 border-[#E01A00] hover:bg-transparent hover:text-[#E01A00] hover:border-2 hover:border-[#E01A00] rounded-full;
 	}
 	.btn-gray-rounded {
-		@apply cursor-pointer transition ease-in-out delay-100 bg-[#2b2a2a] py-1 px-3 inline-block hover:bg-transparent border-2 border-[#2b2a2a] hover:text-[#2b2a2a] hover:border-2 hover:border-[#2b2a2a] rounded-full;
+		@apply cursor-pointer transition ease-in-out delay-100 bg-[#2b2a2a] py-1 px-4 inline-block hover:bg-transparent border-2 border-[#2b2a2a] hover:text-[#2b2a2a] hover:border-2 hover:border-[#2b2a2a] rounded-full;
 	}
 	.h1-title {
 		@apply text-transparent lilita-one text-stroke font-bold;
 	}
 	.h2-title {
-		@apply text-2xl mb-4 border-b-2 border-[#000] pb-2;
+		@apply text-2xl mb-4 border-b-2 border-[#1a1a1a] pb-2;
 	}
 }
 
@@ -35,5 +35,8 @@
 	}
 	.text-stroke {
 		-webkit-text-stroke: 1px #E01A00;
+	}
+	.bg-black-orign {
+		background-image: radial-gradient(circle at center center, transparent, rgb(33, 33, 33)), repeating-linear-gradient(135deg, rgb(33, 33, 33) 0px, rgb(33, 33, 33) 2px, transparent 2px, transparent 10px, rgb(33, 33, 33) 10px, rgb(33, 33, 33) 11px, transparent 11px, transparent 21px), repeating-linear-gradient(45deg, rgb(47, 47, 47) 0px, rgb(47, 47, 47) 4px, transparent 4px, transparent 8px), linear-gradient(90deg, rgb(33, 33, 33), rgb(33, 33, 33));
 	}
 }
