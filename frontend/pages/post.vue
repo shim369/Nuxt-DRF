@@ -81,7 +81,7 @@ async function submitForm() {
 </script>
 
 <template>
-    <underTitle under_h1="Post Project" />
+    <UnderTitle under_h1="Post Project" />
     <div class="py-10 px-6">
         <form v-on:submit.prevent="submitForm" class="space-y-4 m-auto w-full md:w-3/5">
 

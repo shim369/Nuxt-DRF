@@ -17,7 +17,7 @@ useSeoMeta({
     <div class="grid md:grid-cols-4 gap-6 py-10 px-6 text-white">
         <main class="md:col-span-3">
             <ul class="space-y-4">
-                <project v-for="project in projects" v-bind:key="project.id" v-bind:project="project" />
+                <Project v-for="project in projects" v-bind:key="project.id" v-bind:project="project" />
             </ul>
         </main>
         <aside class="md:col-span-1">

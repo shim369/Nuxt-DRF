@@ -37,7 +37,7 @@ async function submitForm() {
 }
 </script>
 <template>
-    <underTitle under_h1="Sign up" />
+    <UnderTitle under_h1="Sign up" />
     <div class="py-10 px-6">
         <div class="max-w-sm mx-auto py-10 px-6 bg-[#3a3a3a]">
             <form v-on:submit.prevent="submitForm">

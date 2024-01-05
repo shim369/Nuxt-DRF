@@ -41,12 +41,12 @@ async function submitForm() {
 }
 </script>
 <template>
-    <underTitle under_h1="Log in" />
+    <UnderTitle under_h1="Log in" />
     <div class="py-10 px-6">
         <div class="max-w-sm mx-auto py-10 px-6 bg-[#3a3a3a]">
             <form v-on:submit.prevent="submitForm">
-                <input v-model="email" type="email" placeholder="Email" class="w-full mb-4 py-4 px-6 text-black">
-                <input v-model="password" type="password" placeholder="Password" class="w-full mb-4 py-4 px-6 text-black">
+                <input v-model="email" type="email" id="email" placeholder="Email" class="w-full mb-4 py-4 px-6 text-black">
+                <input v-model="password" type="password" id="password" placeholder="Password" class="w-full mb-4 py-4 px-6 text-black">
                 
                 <div
                     v-if="errors.length"

@@ -29,7 +29,7 @@ let { data: projects } = await useFetch('http://127.0.0.1:8000/api/v1/projects/'
 </script>
 
 <template>
-    <underTitle under_h1="Projects" />
+    <UnderTitle under_h1="Projects" />
     <div class="grid md:grid-cols-4 gap-6 py-10 px-6">
         <aside class="md:col-span-1 px-6 py-6">
             <div class="flex space-x-4">
@@ -55,7 +55,7 @@ let { data: projects } = await useFetch('http://127.0.0.1:8000/api/v1/projects/'
         </aside>
         <main class="md:col-span-3">
             <ul class="space-y-4">
-                <project v-for="project in projects" v-bind:key="project.id" v-bind:project="project" />
+                <Project v-for="project in projects" v-bind:key="project.id" v-bind:project="project" />
             </ul>
         </main>
     </div>

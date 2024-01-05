@@ -10,7 +10,7 @@ useSeoMeta({
 </script>
 
 <template>
-    <underTitle under_h1="Project Detail" />
+    <UnderTitle under_h1="Project Detail" />
     <div class="py-10 px-6 w-full md:w-3/5 m-auto bg-[#3a3a3a] mt-10 border-b-8 border-[#e82c2c]">
         <div class="m-auto md:col-span-3">
             <h2 class="mb-6 text-2xl">{{ project.title }}</h2>

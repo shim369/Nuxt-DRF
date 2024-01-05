@@ -45,10 +45,10 @@ function deleteProject(id) {
 </script>
 
 <template>
-    <underTitle under_h1="Admin" />
+    <UnderTitle under_h1="Admin" />
     <div class="py-10 px-6">
         <ul class="space-y-4">
-            <project v-for="project in projects" :key="project.id" :project="project" :admin="true"
+            <Project v-for="project in projects" :key="project.id" :project="project" :admin="true"
                 @deleteProject="deleteProject" />
         </ul>
     </div>
